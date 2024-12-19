@@ -1,7 +1,6 @@
 import { registerFn } from "../common/plugin-element-cache";
 import pluginInfo from "../plugin-manifest.json";
 import cssString from "inline:./styles/style.css";
-import { handleGridPlugin } from "./grid-renderers";
 
 registerFn(pluginInfo, (handler, client) => {
   /**
@@ -14,7 +13,4 @@ registerFn(pluginInfo, (handler, client) => {
     document.head.appendChild(style);
   }
 
-  handler.on("flotiq.grid.cell::render", (data) =>
-    handleGridPlugin(data, client, pluginInfo),
-  );
 });
