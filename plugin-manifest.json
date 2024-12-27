@@ -1,9 +1,9 @@
 {
   "id": "flotiq.singleton-types",
   "name": "Singleton types",
-  "description": "",
-  "version": "0.1.2",
-  "repository": "https://github.com/flotiq/flotiq-ui-plugin-templates-plain-js",
+  "description": "The plugin allows setting selected content types as singletons, redirecting object views to creation or editing skipping the content objects grid",
+  "version": "0.1.3",
+  "repository": "https://github.com/flotiq/flotiq-ui-plugin-singleton-types",
   "url": "https://localhost:3053/index.js",
   "permissions": []
 }

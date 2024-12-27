@@ -1,15 +1,16 @@
-import pluginInfo from "../../plugin-manifest.json";
+import pluginInfo from '../../plugin-manifest.json';
+import i18n from 'i18next';
 
 const getFields = (contentTypes) => {
   return {
     metaDefinition: {
-      order: ["singleton_types"],
+      order: ['singleton_types'],
       propertiesConfig: {
         singleton_types: {
-          label: "Singleton Types",
-          helpText: "List of content types that should only contain one record",
+          label: i18n.t('SingletonTypes'),
+          helpText: i18n.t('SingletonTypesDescription'),
           unique: false,
-          inputType: "select",
+          inputType: 'select',
           optionsWithLabels: contentTypes,
           useOptionsWithLabels: true,
         },
@@ -18,16 +19,16 @@ const getFields = (contentTypes) => {
     schemaDefinition: {
       additionalProperties: false,
       required: [],
-      type: "object",
+      type: 'object',
       allOf: [
         {
-          $ref: "#/components/schemas/AbstractContentTypeSchemaDefinition",
+          $ref: '#/components/schemas/AbstractContentTypeSchemaDefinition',
         },
         {
-          type: "object",
+          type: 'object',
           properties: {
             singleton_types: {
-              type: "string",
+              type: 'string',
               minLength: 1,
             },
           },

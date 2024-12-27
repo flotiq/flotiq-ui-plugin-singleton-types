@@ -1,7 +1,7 @@
 import {
   addObjectToCache,
   getCachedElement,
-} from "../../common/plugin-element-cache.js";
+} from '../../common/plugin-element-cache.js';
 
 export default function gridRenderHandler(
   { contentType, contentObjects, pagination },
@@ -23,18 +23,18 @@ export default function gridRenderHandler(
   if (!url) {
     url = new URL(window.location.href);
 
-    if (url.pathname.includes("/add/") || url.pathname.includes("/edit/")) {
+    if (url.pathname.includes('/add/') || url.pathname.includes('/edit/')) {
       return;
     }
 
     if (!contentObjects[0]) {
       url.pathname = url.pathname.replace(
-        "/" + contentType.name,
+        '/' + contentType.name,
         `/add/${contentType.name}`,
       );
     } else {
       url.pathname = url.pathname.replace(
-        "/" + contentType.name,
+        '/' + contentType.name,
         `/edit/${contentType.name}/${contentObjects[0].id}`,
       );
     }
@@ -45,6 +45,4 @@ export default function gridRenderHandler(
   }
 
   navigate(url);
-
-  return "";
 }
