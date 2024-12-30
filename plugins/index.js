@@ -24,7 +24,7 @@ registerFn(
     }
 
     handler.on('flotiq.grid::render', (event) => {
-      return gridRenderHandler(event, getPluginSettings, navigate, pluginInfo);
+      return gridRenderHandler(event, getPluginSettings, navigate);
     });
 
     handler.on('flotiq.plugins.manage::form-schema', ({ contentTypes }) => {

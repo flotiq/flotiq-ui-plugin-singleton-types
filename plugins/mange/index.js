@@ -13,6 +13,7 @@ const getFields = (contentTypes) => {
           inputType: 'select',
           optionsWithLabels: contentTypes,
           useOptionsWithLabels: true,
+          isMultiple: true,
         },
       },
     },
@@ -28,8 +29,7 @@ const getFields = (contentTypes) => {
           type: 'object',
           properties: {
             singleton_types: {
-              type: 'string',
-              minLength: 1,
+              type: 'array',
             },
           },
         },
