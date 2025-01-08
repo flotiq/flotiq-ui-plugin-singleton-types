@@ -18,17 +18,15 @@ const generateLoader = (pluginId) => {
 };
 
 export default function gridRenderHandler(
-  { contentType, contentObjects, pagination, isRefetching },
+  { contentType, contentObjects, isFetching },
   getPluginSettings,
   navigate,
 ) {
   if (!getPluginSettings()) return;
   const settings = JSON.parse(getPluginSettings());
 
-  if (!pagination.current_page) return;
-
   if (!settings.singleton_types.includes(contentType?.name)) return;
-  if (isRefetching) return generateLoader();
+  if (isFetching) return generateLoader();
 
   const url = new URL(window.location.href);
 
