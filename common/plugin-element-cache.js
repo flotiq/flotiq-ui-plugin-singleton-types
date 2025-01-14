@@ -6,11 +6,24 @@ export const addElementToCache = (element, key, data = {}) => {
     data,
   };
 
+  let detachTimeoutId;
+
+  element.addEventListener('flotiq.attached', () => {
+    if (detachTimeoutId) {
+      clearTimeout(detachTimeoutId);
+      detachTimeoutId = null;
+    }
+  });
+
   element.addEventListener('flotiq.detached', () => {
-    setTimeout(() => {
-      return delete appRoots[key];
+    detachTimeoutId = setTimeout(() => {
+      delete appRoots[key];
     }, 50);
   });
+};
+
+export const addObjectToCache = (key, data = {}) => {
+  appRoots[key] = data;
 };
 
 export const getCachedElement = (key) => {

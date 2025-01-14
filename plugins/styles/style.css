@@ -1,8 +1,16 @@
-@font-face {
-  font-family: "Roboto Mono";
-  src: url(./RobotoMono-Medium.ttf) format("truetype");
+.flotiq-singleton-plugin-loader-container{
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.plugin-name-cell-renderer {
-  font-family: "Roboto Mono", monospace;
+.flotiq-singleton-plugin-loader{
+  width: 50px;
+  height: 50px;
+  border: 5px solid #ccc;
+  border-top: 5px solid #0083FC;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
 }
