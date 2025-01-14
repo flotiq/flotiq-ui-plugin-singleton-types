@@ -1,4 +1,4 @@
-.loader-container{
+.flotiq-singleton-plugin-loader-container{
   width: 100%;
   height: 100vh;
   display: flex;
@@ -6,11 +6,11 @@
   align-items: center;
 }
 
-.loader{
-  width: 35px;
-  height: 35px;
-  border: 3px solid #ccc;
-  border-top: 3px solid #0083FC;
+.flotiq-singleton-plugin-loader{
+  width: 50px;
+  height: 50px;
+  border: 5px solid #ccc;
+  border-top: 5px solid #0083FC;
   border-radius: 50%;
   animation: spin 1s linear infinite;
 }

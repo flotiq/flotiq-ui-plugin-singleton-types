@@ -4,29 +4,30 @@ import {
 } from '../../common/plugin-element-cache.js';
 
 const generateLoader = (pluginId) => {
-  let loader = getCachedElement(`${pluginId}-loader`)?.element;
+  let loader = getCachedElement(
+    `${pluginId}-flotiq-singleton-plugin-loader`,
+  )?.element;
 
   if (!loader) {
     loader = document.createElement('div');
-    loader.classList.add('loader-container');
-    loader.innerHTML = '<div class="loader"></div>';
+    loader.classList.add('flotiq-singleton-plugin-loader-container');
+    loader.innerHTML = '<div class="flotiq-singleton-plugin-loader"></div>';
 
-    addElementToCache(loader, `${pluginId}-loader`);
+    addElementToCache(loader, `${pluginId}-flotiq-singleton-plugin-loader`);
   }
 
   return loader;
 };
 
 export default function gridRenderHandler(
-  { contentType, contentObjects, isFetching },
+  { contentType, contentObjects, isFetching, isLoading },
   getPluginSettings,
   navigate,
 ) {
-  if (!getPluginSettings()) return;
+  if (isLoading || isFetching) return generateLoader();
   const settings = JSON.parse(getPluginSettings());
 
   if (!settings.singleton_types.includes(contentType?.name)) return;
-  if (isFetching) return generateLoader();
 
   const url = new URL(window.location.href);
 
