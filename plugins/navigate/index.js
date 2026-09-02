@@ -24,10 +24,10 @@ export default function gridRenderHandler(
   getPluginSettings,
   navigate,
 ) {
-  if (isLoading || isFetching) return generateLoader();
   const settings = JSON.parse(getPluginSettings());
-
   if (!settings.singleton_types.includes(contentType?.name)) return;
+
+  if (isLoading || isFetching) return generateLoader();
 
   const url = new URL(window.location.href);
 
